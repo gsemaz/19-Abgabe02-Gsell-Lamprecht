@@ -2,7 +2,6 @@
     <property file = "build.properties"/>
 
   <!-- first target which creates directories for later usage -->
-  <!-- read more about: https://ant.apache.org/manual/targets.html -->
   <target name="init">
     <mkdir dir="${jarD}"/>
     <mkdir dir="${bin}"/>
@@ -10,8 +9,6 @@
   
   <!-- removes same directories which created by init target -->
   <target name="clean">
-	<!-- read more about ant tasks in general: https://ant.apache.org/manual/tasksoverview.html -->
-	<!-- read more about delete task in detail: https://ant.apache.org/manual/Tasks/delete.html -->
     <mkdir dir="${jarD}"/>
     <mkdir dir="${bin}"/>
   </target>
@@ -20,5 +17,14 @@
   <target name="compile" depends="init">
     <javac srcdir="${src}" destdir="${bin}" includeantruntime="false"/>
   </target>  
+
+  <!-- creates jar-file with manifest -->
+  <target name="jar" depends="compile">
+    <jar destfile="${jarD}/${jName}" basedir="${bin}">
+        <manifest>
+            <attribute name="Main-Class" value="at.fhj.iit.Main" />
+        </manifest>
+    </jar>
+  </target>
   
 </project>
