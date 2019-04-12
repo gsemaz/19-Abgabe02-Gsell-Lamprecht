@@ -9,9 +9,9 @@
   
   <!-- removes same directories which created by init target -->
   <target name="clean">
-    <rmdir dir="${jarD}"/>
-    <rmdir dir="${bin}"/>
-    <rmdir dir="dist">
+    <delete dir="${jarD}"/>
+    <delete dir="${bin}"/>
+    <delete dir="dist"/>
   </target>
   
   <!-- compiles defined java src files and store them into destination directory -->
