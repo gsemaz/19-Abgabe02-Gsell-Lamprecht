@@ -1,16 +1,17 @@
-<project name="SimpleAutomaticBuildProject">
+<project name="19-Abgabe02-Gsell-Lamprecht">
+    <property file = "build.properties"/>
 
   <!-- first target which creates directories for later usage -->
   <!-- read more about: https://ant.apache.org/manual/targets.html -->
   <target name="init">
-    <mkdir dir="build-ant"/>
+    <mkdir dir="testdir"/>
   </target>  
   
   <!-- removes same directories which created by init target -->
   <target name="clean">
 	<!-- read more about ant tasks in general: https://ant.apache.org/manual/tasksoverview.html -->
 	<!-- read more about delete task in detail: https://ant.apache.org/manual/Tasks/delete.html -->
-  	<delete dir="build-ant"/>
+  	<delete dir="testdir"/>
   </target>
   
   <!-- compiles defined java src files and store them into destination directory -->
