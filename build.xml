@@ -12,6 +12,7 @@
     <delete dir="${jarD}"/>
     <delete dir="${bin}"/>
     <delete dir="dist"/>
+    <delete file="output.txt"/>
   </target>
   
   <!-- compiles defined java src files and store them into destination directory -->
@@ -36,9 +37,9 @@
   
 
 <!-- runs jar file with defined arguments -->
-  <target name="run" depends="jar">
+  <target name="run" depends="install">
     <echo message="Attempting to run! "/>
-    <java jar="${jarD}/${jName}" output=" output.txt" fork="true">
+    <java jar="${jarD}/${jName}" output="dist/output.txt" fork="true">
       <arg value="Mathias und Daniel"/>
     </java>
   </target>
