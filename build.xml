@@ -9,8 +9,9 @@
   
   <!-- removes same directories which created by init target -->
   <target name="clean">
-    <mkdir dir="${jarD}"/>
-    <mkdir dir="${bin}"/>
+    <rmdir dir="${jarD}"/>
+    <rmdir dir="${bin}"/>
+    <rmdir dir="dist">
   </target>
   
   <!-- compiles defined java src files and store them into destination directory -->
@@ -25,6 +26,12 @@
             <attribute name="Main-Class" value="at.fhj.iit.Main" />
         </manifest>
     </jar>
+  </target>
+
+<!-- copies jar file in new directory (dist) -->
+  <target name="install" depends="jar">
+    <mkdir dir="dist"/>
+        <copy file="${jarD}/${jName}" todir="dist"/>
   </target>
   
 </project>
