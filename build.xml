@@ -34,4 +34,12 @@
         <copy file="${jarD}/${jName}" todir="dist"/>
   </target>
   
+
+<!-- runs jar file with defined arguments -->
+  <target name="run" depends="jar">
+    <echo message="Attempting to run! "/>
+    <java jar="${jarD}/${jName}" output=" output.txt" fork="true">
+      <arg value="Mathias und Daniel"/>
+    </java>
+  </target>
 </project>
